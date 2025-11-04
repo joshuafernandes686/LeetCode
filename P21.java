@@ -17,7 +17,7 @@ class ListNode {
     }
 }
 
-class Solution {
+class Solution21 {
     public ListNode insert(ListNode head, int val) {
         ListNode newNode = new ListNode(val);
         ListNode cur = head;
