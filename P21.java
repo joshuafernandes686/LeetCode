@@ -66,7 +66,7 @@ class Solution21 {
 public class P21 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Solution sol = new Solution();
+        Solution21 sol = new Solution21();
 
         // Input first list
         System.out.print("Enter number of nodes in first list: ");
