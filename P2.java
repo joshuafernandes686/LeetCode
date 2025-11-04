@@ -17,7 +17,7 @@ class ListNode {
     }
 }
 
-class Solution {
+class Solution2 {
     public ListNode insert(ListNode head, int val){
         ListNode newNode = new ListNode(val);
         ListNode cur = head;
@@ -69,7 +69,7 @@ class Solution {
 public class P2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Solution sol = new Solution();
+        Solution2 sol = new Solution2();
 
         // Input first linked list
         System.out.print("Enter number of nodes in first linked list: ");

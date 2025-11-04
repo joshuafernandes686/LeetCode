@@ -15,7 +15,7 @@ class ListNode {
     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
 }
 
-class Solution {
+class Solution3217 {
     public ListNode modifiedList(int[] nums, ListNode head) {
         if (head == null) return null;
 
@@ -44,7 +44,7 @@ public class P3217 {
                         new ListNode(4,
                         new ListNode(5,
                         new ListNode(6))))));
-        Solution sol = new Solution();
+        Solution3217 sol = new Solution3217();
         ListNode modified = sol.modifiedList(nums, head);
         System.out.print("Modified list: ");
         printList(modified);
