@@ -31,36 +31,18 @@ class Solution {
     }
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        long n1, n2;
-        n1 = 0;
-        n2 = 0;
-        ListNode cur1, cur2;
-        long k = 0;
-        cur1 = l1;
-        while(cur1 != null){
-            n1 += cur1.val * Math.pow(10, k);
-            k++;
-            cur1 = cur1.next;
+        ListNode cur1=l1;
+        ListNode cur2=l2;
+        ListNode out= new ListNode();
+        int sum=0;
+        int carry=0;
+        while(cur1!=null && cur2!=null){
+            sum=cur1.val+cur2.val+carry;
+            insert(out,sum%10);
+            carry=sum/10;
+            cur1=cur1.next;
+            cur2=cur2.next;
         }
-        k = 0;
-        cur2 = l2;
-        while(cur2 != null){
-            n2 += cur2.val * Math.pow(10, k);
-            k++;
-            cur2 = cur2.next;
-        }
-        long sum = n1 + n2;
-        System.out.println(sum);
-        ListNode out = new ListNode();
-        if(sum==0) return out;
-        long digit;
-        while(sum > 0){
-            digit=sum%10;
-            insert(out, (int)digit);
-            sum /= 10;
-        }
-        out=out.next;
-
         return out;
     }
 }
