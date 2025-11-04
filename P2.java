@@ -43,6 +43,22 @@ class Solution {
             cur1=cur1.next;
             cur2=cur2.next;
         }
+        while(cur1!=null){
+            sum=cur1.val+carry;
+            insert(out,sum%10);
+            carry=sum/10;
+            cur1=cur1.next;
+        }
+        while(cur2!=null){
+            sum=cur2.val+carry;
+            insert(out,sum%10);
+            carry=sum/10;
+            cur2=cur2.next;
+        }
+        if(cur1==null && cur2==null && carry!=0){
+            insert(out, carry);
+        }
+        out=out.next;
         return out;
     }
 }
