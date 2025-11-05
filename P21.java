@@ -35,31 +35,37 @@ class Solution21 {
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
         ListNode cur1 = list1;
         ListNode cur2 = list2;
-        ListNode out = new ListNode();
+        ListNode out = new ListNode(0);
+        ListNode append=out;
         while (cur1 != null && cur2 != null) {
             if (cur1.val < cur2.val) {
-                insert(out, cur1.val);
+                append.next=cur1;
                 cur1 = cur1.next;
+                append=append.next;
             } else if (cur1.val > cur2.val) {
-                insert(out, cur2.val);
+                append.next=cur2;
                 cur2 = cur2.next;
+                append=append.next;
             } else if (cur1.val == cur2.val) {
-                insert(out, cur1.val);
+                append.next=cur1;
                 cur1 = cur1.next;
-                insert(out, cur2.val);
+                append=append.next;
+                append.next=cur2;
                 cur2 = cur2.next;
+                append=append.next;
             }
         }
         while (cur1 != null) {
-            insert(out, cur1.val);
+            append.next=cur1;
             cur1 = cur1.next;
+            append=append.next;
         }
         while (cur2 != null) {
-            insert(out, cur2.val);
+            append.next=cur2;
             cur2 = cur2.next;
+            append=append.next;
         }
-        out = out.next;
-        return out;
+        return out.next;
     }
 }
 
