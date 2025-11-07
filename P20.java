@@ -1,23 +1,29 @@
 import java.util.*;
 
-class Solution {
+class Solution20 {
     public boolean isValid(String s) {
-        Stack<Character> brac = new Stack<>();
-        brac.push(s.charAt(0));
-        int leng = s.length();
-        for (int i = 1; i < leng; i++) {
-            if (s.charAt(i) == brac.peek()) brac.pop();
-            else brac.push(s.charAt(i));
+        Stack<Character> brac=new Stack<>();
+        Map<Character, Character> bracs = new HashMap<>();
+        bracs.put('}','{');
+        bracs.put(']','[');
+        bracs.put(')','(');
+
+        for(char c: s.toCharArray()){
+            if(bracs.containsKey(c)){
+                if(brac.isEmpty() || brac.pop()!=bracs.get(c)) return false;
+            }
+            else{
+                brac.push(c);
+            }
         }
-        System.out.println(brac);
-        return brac.empty();
+        return brac.isEmpty();
     }
 }
 
 public class P20 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Solution sol = new Solution();
+        Solution20 sol = new Solution20();
 
         System.out.print("Enter a string of brackets: ");
         String s = sc.nextLine();
