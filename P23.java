@@ -17,7 +17,7 @@ class ListNode {
     }
 }
 
-class Solution {
+class Solution23 {
 
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
         ListNode cur1 = list1;
